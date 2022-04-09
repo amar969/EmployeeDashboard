@@ -1,6 +1,12 @@
-export const TEMP = "TEMP";
+export const LOGIN = "LOGIN";
 
-export const temp = (payload) => ({
-  type: TEMP,
+export const login = (payload) => ({
+  type: LOGIN,
+  payload,
+});
+export const LOGOUT = "LOGOUT";
+
+export const logout = (payload) => ({
+  type: LOGOUT,
   payload,
 });
