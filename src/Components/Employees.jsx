@@ -8,6 +8,9 @@ export default function Employees() {
   return (
     <section id="emp">
       <h1>All Employees</h1>
+      <button onClick={() => navigate("/employees/create")}>
+        Go to Create Employee Page
+      </button>
       <article>
         {employees.map(
           ({ name, email, gender, roll, department, salary, id }) => (

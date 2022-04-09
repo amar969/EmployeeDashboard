@@ -8,10 +8,12 @@ export default function Employee() {
   let navigate = useNavigate();
   let data = employees[+id - 1];
   console.log(data);
-  document.window.reload();
   return (
     <div id="single">
-      <img src="https://source.unsplash.com/random/1920x1080/?nature" alt="" />
+      <img
+        src={`https://source.unsplash.com/random/200x200?sig=${Math.random()}`}
+        alt=""
+      />
       <p>
         <span>Name: </span>
         {data.name}
@@ -42,6 +44,14 @@ export default function Employee() {
         }}
       >
         Go Back
+      </button>
+      <button
+        style={{ marginLeft: "20px" }}
+        onClick={() => {
+          navigate(`/employees/${id}/edit`);
+        }}
+      >
+        Edit
       </button>
     </div>
   );
