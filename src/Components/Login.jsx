@@ -1,70 +1,60 @@
 import React from "react";
-import "./style.css";
-import { useDispatch } from "react-redux";
-import { login } from "../Redux/action";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
-  const dispatch = useDispatch();
+function Login() {
   let navigate = useNavigate();
-  let [inp, setInp] = React.useState({
-    password: "harsh1234",
-    username: "harsh163",
+  let [input, setInput] = React.useState({
   });
   const formHandler = (e) => {
     e.preventDefault();
-
-    console.log(inp);
     fetch("https://masai-api-mocker.herokuapp.com/auth/login", {
       method: "POST",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(inp),
+      body: JSON.stringify(input),
     })
       .then((res) => res.json())
       .then((res) => {
         console.log(res);
         if (res.error === false) {
-          //   console.log(res);
-          dispatch(login(res.token));
-          navigate("/");
+             navigate("/");
         } else {
           alert(res.message);
         }
       });
   };
   const changeHandler = (e) => {
-    setInp({
-      ...inp,
+    setInput({
+      ...input,
       [e.target.id]: e.target.value,
     });
   };
   return (
     <form onSubmit={formHandler}>
-      <label htmlFor="name">Enter Your Name:</label>
+      <label htmlFor="name">Enter Name:</label>
       <input
         type="text"
-        placeholder="enter your name"
+        placeholder="enter name"
         id="name"
-        value="Harsh Gajera"
+        value=""
       />
 
-      <label htmlFor="username">Enter Your Username:</label>
+      <label htmlFor="uname">Enter Username:</label>
       <input
         type="text"
         placeholder="enter your username"
         id="username"
-        value={inp.username}
+        value={input.username}
         onChange={changeHandler}
       />
-      <label htmlFor="password">Enter Your Password:</label>
+      <label htmlFor="password">Enter Password:</label>
       <input
         type="text"
-        placeholder="enter your password"
+        placeholder="enter password"
         id="password"
-        value={inp.password}
+        value={input.password}
         onChange={changeHandler}
       />
 
@@ -72,3 +62,5 @@ export default function Login() {
     </form>
   );
 }
+
+export {Login}

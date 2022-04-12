@@ -1,13 +1,10 @@
 import React from "react";
-import "./style.css";
-import { employees } from "./data";
 import { useNavigate, useParams } from "react-router-dom";
-export default function Employee() {
+
+function Employee() {
   let { id } = useParams();
   console.log(id);
   let navigate = useNavigate();
-  let data = employees[+id - 1];
-  console.log(data);
   return (
     <div id="single">
       <img
@@ -16,27 +13,22 @@ export default function Employee() {
       />
       <p>
         <span>Name: </span>
-        {data.name}
+      </p>
+      <p>
+        <span>Employee_ID: </span>
       </p>
       <p>
         <span>Email: </span>
-        {data.email}
       </p>
       <p>
         <span>Gender: </span>
-        {data.gender}
       </p>
-      <p>
-        <span>Roll: </span>
-        {data.roll}
-      </p>
+      
       <p>
         <span>Department: </span>
-        {data.department}
       </p>
       <p>
         <span>Salary: </span>
-        {data.salary} $
       </p>
       <button
         onClick={() => {
@@ -56,3 +48,5 @@ export default function Employee() {
     </div>
   );
 }
+
+export {Employee}

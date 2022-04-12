@@ -1,29 +1,27 @@
 import React from "react";
-import "./style.css";
-export default function Create() {
-  //  name: "John Smith",
-  // email: "johnsmith@gmail.com",
-  // gender: "male",
-  // roll: "manager",
-  // department: "HR",
-  // salary: 100,
-  // id: 1,
+
+function Create() {
+  
   return (
+    <>
     <form action="/employees">
       <h1>Employee Create Page</h1>
-      <label htmlFor="">Enter Your Name:</label>
-      <input type="text" placeholder="enter your name" />
-      <label htmlFor="">Enter Your Email:</label>
-      <input type="text" placeholder="enter your email" />
-      <label htmlFor="">Enter Your Gender:</label>
-      <input type="text" placeholder="enter your gender" />
-      <label htmlFor="">Enter Your Roll:</label>
-      <input type="text" placeholder="enter your roll" />
-      <label htmlFor="">Enter Your Department:</label>
-      <input type="text" placeholder="enter your department" />
-      <label htmlFor="">Enter Your Salary:</label>
-      <input type="text" placeholder="enter your salary" />
+      <label>Enter Name:</label>
+      <input type="text" placeholder="Enter name" />
+      <label >Enter Employee_ID:</label>
+      <input type="text" placeholder="Enter roll" />
+      <label >Enter Email:</label>
+      <input type="text" placeholder="Enter email" />
+      <label >Enter Gender:</label>
+      <input type="text" placeholder="Enter gender" />
+      <label >Enter Department:</label>
+      <input type="text" placeholder="Enter department" />
+      <label >Enter Salary:</label>
+      <input type="text" placeholder="Enter salary" />
       <button>Submit Details</button>
     </form>
+    </>
   );
 }
+
+export {Create}
